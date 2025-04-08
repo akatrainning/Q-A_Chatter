@@ -105,7 +105,7 @@ class LawSentenceWindowNodeParser(NodeParser):
         titles = []
         for i, line in enumerate(lines):
             if len(line) > 0 and line[0] != '\n' and line[0] != '\u3000' and line[0] != ' ':
-                if '纪' not in line and '传' not in line and '法' not in line:
+                if '法' not in line:
                     continue
                 titles.append([line.strip(), i])
         return TitleLocalizer(titles, len(lines))
