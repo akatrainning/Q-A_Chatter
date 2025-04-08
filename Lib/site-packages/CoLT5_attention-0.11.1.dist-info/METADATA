@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: CoLT5-attention
+Version: 0.11.1
+Summary: Conditionally Routed Attention
+Home-page: https://github.com/lucidrains/CoLT5-attention
+Author: Phil Wang
+Author-email: lucidrains@gmail.com
+License: MIT
+Keywords: artificial intelligence,attention mechanism,dynamic routing
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: einops >=0.8.0
+Requires-Dist: local-attention >=1.8.6
+Requires-Dist: packaging
+Requires-Dist: torch >=1.10
+

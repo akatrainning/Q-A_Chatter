@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: llama-index-vector-stores-postgres
+Version: 0.4.2
+Summary: llama-index vector_stores postgres integration
+License: MIT
+Author: Your Name
+Author-email: you@example.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: asyncpg (>=0.29.0,<1.0.0)
+Requires-Dist: llama-index-core (>=0.12.6,<0.13.0)
+Requires-Dist: pgvector (>=0.3.6,<1.0.0)
+Requires-Dist: psycopg2-binary (>=2.9.9,<3.0.0)
+Requires-Dist: sqlalchemy[asyncio] (>=1.4.49,<2.1)
+Description-Content-Type: text/markdown
+
+# LlamaIndex Vector_Stores Integration: Postgres
+

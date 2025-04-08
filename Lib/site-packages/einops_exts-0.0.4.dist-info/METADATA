@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: einops-exts
+Version: 0.0.4
+Summary: Einops Extensions
+Home-page: https://github.com/lucidrains/einops-exts
+Author: Phil Wang
+Author-email: lucidrains@gmail.com
+License: MIT
+Keywords: artificial intelligence,deep learning,tensor manipulation
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: einops (>=0.4)
+
