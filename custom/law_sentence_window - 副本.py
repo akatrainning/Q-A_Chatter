@@ -19,7 +19,7 @@ DEFAULT_OG_TEXT_METADATA_KEY = "original_text"
 
 
 
-class HistorySentenceWindowNodeParser(NodeParser):
+class LawsSentenceWindowNodeParser(NodeParser):
     sentence_splitter: Callable[[str], List[str]] = Field(
         default_factory=split_by_sentence_tokenizer,
         description="The text splitter to use when splitting documents.",
@@ -41,7 +41,7 @@ class HistorySentenceWindowNodeParser(NodeParser):
 
     @classmethod
     def class_name(cls) -> str:
-        return "HistorySentenceWindowNodeParser"
+        return "LawsSentenceWindowNodeParser"
 
     @classmethod
     def laws_name(cls, path):
@@ -191,7 +191,7 @@ class HistorySentenceWindowNodeParser(NodeParser):
         include_metadata: bool = True,
         include_prev_next_rel: bool = True,
         callback_manager: Optional[CallbackManager] = None,
-    ) -> "HistorySentenceWindowNodeParser":
+    ) -> "LawsSentenceWindowNodeParser":
         callback_manager = callback_manager or CallbackManager([])
 
         sentence_splitter = sentence_splitter or split_by_sentence_tokenizer()
@@ -244,7 +244,7 @@ class HistorySentenceWindowNodeParser(NodeParser):
             title_localizer = self.analyze_titles(text)
             lines = text.split('\n')
             nodes = []
-            book_name = HistorySentenceWindowNodeParser.book_name(doc.metadata['file_name'])
+            book_name = LawsSentenceWindowNodeParser.book_name(doc.metadata['file_name'])
             for i, line in enumerate(lines):
                 if len(line) == 0:
                     continue
