@@ -44,33 +44,7 @@ class HistorySentenceWindowNodeParser(NodeParser):
         return "HistorySentenceWindowNodeParser"
 
     @classmethod
-    def book_name(cls, path):
-        _mapping["baihuabeiqishu.txt"] = "北齐书"
-        _mapping["baihuabeishi.txt"] = "北史" 
-        _mapping["baihuachenshu.txt"] = "陈书"
-        _mapping["baihuahanshu.txt"] = "汉书"
-        _mapping["baihuahouhanshu.txt"] = "后汉书"
-        _mapping["baihuajinshi.txt"] = "金史"  
-        _mapping["baihuajinshu.txt"] = "晋书" 
-        _mapping["baihuajiutangshu.txt"] = "旧唐书"
-        _mapping["baihuajiuwudaishi.txt"] = "旧五代史"
-        _mapping["baihualiangshu.txt"] = "梁书"
-        _mapping["baihualiaoshi.txt"] = "辽史"
-
-        _mapping["baihuananqishu.txt"] = "南齐书"
-        _mapping["baihuananshi.txt"] = "南史"
-        _mapping["baihuasanguozhi.txt"] = "三国志"
-        _mapping["baihuashiji.txt"] = "史记"
-        _mapping["baihuasongshi.txt"] = "宋史"
-        _mapping["baihuasongshu.txt"] = "宋书"
-        _mapping["baihuasuishu.txt"] = "隋史" 
-        _mapping["baihuaweishu.txt"] = "魏书"
-        _mapping["baihuaxintangshi.txt"] = "新唐史"
-        _mapping["baihuaxinwudaishi.txt"] = "新五代史"
-        _mapping["baihuayuanshi.txt"] = "元史"
-        _mapping["baihuazhoushu.txt"] = "周书"
-        _mapping["hetongfa.txt"] = "合同法"
-        ##
+    def laws_name(cls, path):
         _mapping["zhonghuarenmingongguojixingshisifaxiezhufa.txt"] = "中华人民共和国刑事司法协助法"
         _mapping["zhonghuarenmingongheguoheaerjiliyaminzhurenmingongheguoguanyuxingshisifaxiezhudetiaoyue.txt"] = "中华人民共和国和阿尔及利亚人民民主共和国关于刑事司法协助的条约"
         _mapping["zhonghuarenmingongheguoheagentinggongheguoguanyuxingshisifaxiezhudetiaoyue.txt"] = "中华人民共和国和阿根廷共和国关于刑事司法协助的条约"
@@ -251,9 +225,11 @@ class HistorySentenceWindowNodeParser(NodeParser):
     def analyze_titles(self, text):
         lines = text.split('\n')
         titles = []
+        new_title_keywords = ["条例", "规定", "办法", "决定", "法", "法典"]
         for i, line in enumerate(lines):
             if len(line) > 0 and line[0] != '\n' and line[0] != '\u3000' and line[0] != ' ':
-                if '纪' not in line and '传' not in line and '法' not in line :
+                # 修改标题识别条件
+                if not any(keyword in line for keyword in new_title_keywords):
                     continue
                 titles.append([line.strip(), i])
         return TitleLocalizer(titles, len(lines))
@@ -282,7 +258,7 @@ class HistorySentenceWindowNodeParser(NodeParser):
                 if title == None:
                     continue
                 for line_node in line_nodes:
-                    line_node.metadata["出处"] = f"《{book_name}·{title[0]}》"
+                    line_node.metadata["出处"] = f"《{laws_name}·{title[0]}》"
                 nodes.extend(line_nodes)
             for i, node in enumerate(nodes):
                 window_nodes = nodes[
