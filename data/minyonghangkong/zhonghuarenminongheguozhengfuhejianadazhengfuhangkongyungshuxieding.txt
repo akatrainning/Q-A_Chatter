@@ -328,7 +328,7 @@ into account the interest of the designated airline or airlines of the other Con
 ARTICLE XI
 Statistics
 1.         The  aeronautical  authorities  of each Contracting Party shall provide,or shall cause thei   designated  airlines  to  provide,the  aeronautical  authorities  of the  other  Contracting  Party,upon  request,periodic or other statements of statistics as may be reasonably required for the purpose of
-10	
+10
 reviewing the operation of the agreed services,including statistics showing the initial origins and final destinations of the traffic.
 2.        The aeronautical authorities of both Contracting Parties shall maintain close contact with respect to the implementation of paragraph l of thisArticle including procedures for the provision of statistical information.
 ARTICLE XII
@@ -423,11 +423,11 @@ SECTIONH
 ¡¡Passenger-combination and/or all-cargo services may be operated in either or both directions by an airline(s)designated by the Government of the People's Republic of China on the following
 route:
 POINTSIN CHINA
-Any point or points	
+Any point or points
 INTERMEDIATE POINTS
-Two (2)points to named by China	
+Two (2)points to named by China
 POINTSIN CANADA
-be Ten(10)points to named by China	
+be Ten(10)points to named by China
 POINTS BEYOND
 be Two (2)points to be named by China
 20
