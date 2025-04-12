@@ -90,55 +90,6 @@ def get_branch_head_sha(owner, repo, branch):
     sha = data['object']['sha']
     return sha
 
-# def get_github_repo_contents(repo_url):
-#     # repo_url example: https://raw.githubusercontent.com/wxywb/history_rag/master/data/history_24/
-#     repo_owner = repo_url.split('/')[3]
-#     repo_name = repo_url.split('/')[4]
-#     branch = repo_url.split('/')[5]
-#     folder_path = '/'.join(repo_url.split('/')[6:])
-#     sha = get_branch_head_sha(repo_owner, repo_name, branch)
-#     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/git/trees/{sha}?recursive=1"
-#     try:
-#         response = requests.get(url)
-#         if response.status_code == 200:
-#             data = response.json()
-#
-#             raw_urls = []
-#             for file in data['tree']:
-#                 if file['path'].startswith(folder_path) and file['path'].endswith('.txt'):
-#                     raw_url = f"https://raw.githubusercontent.com/{repo_owner}/{repo_name}/{branch}/{file['path']}"
-#                     raw_urls.append(raw_url)
-#             return raw_urls
-#         else:
-#             print(f"Failed to fetch contents. Status code: {response.status_code}")
-#     except Exception as e:
-#         print(f"Failed to fetch contents. Error: {str(e)}")
-#     return []
-
-# def get_github_repo_contents(repo_url):
-#     """支持多文件类型且增强错误处理的版本"""
-#     try:
-#         # 统一处理URL格式
-#         if "github.com" in repo_url and "/tree/" in repo_url:
-#             repo_url = repo_url.replace("github.com", "raw.githubusercontent.com").replace("/tree/", "/")
-#
-#         path_parts = repo_url.replace("https://raw.githubusercontent.com/", "").split('/')
-#         if len(path_parts) < 4:
-#             raise ValueError("无效的GitHub路径格式")
-#         owner, repo, branch = path_parts[0], path_parts[1], path_parts[2]
-#         folder_path = '/'.join(path_parts[3:])
-#
-#         api_url = f"https://api.github.com/repos/{owner}/{repo}/contents/{folder_path}?ref={branch}"
-#         response = requests.get(api_url)
-#         response.raise_for_status()  # 主动触发HTTP错误
-#
-#         download_urls = []
-#         for item in response.json():
-#             if item['type'] == 'file' and item['name'].lower().endswith(('.txt', '.md', '.pdf')):
-#                 download_urls.append(item['download_url'])
-#         return download_urls
-#     except Exception as e:
-#         raise RuntimeError(f"获取GitHub内容失败: {str(e)}")
 
 def get_github_repo_contents(repo_url):
     """支持多文件类型、递归获取子文件夹内容且增强错误处理的版本"""
@@ -404,66 +355,6 @@ class PipelineExecutor(Executor):
             )
         else:
             print('(rag) 只有github上以txt结尾或文件夹可以被支持。')
-
-    # def build_index(self, path, overwrite):
-    #
-    #     config = self.config
-    #     success_count = 0
-    #     error_files = []
-    #
-    #     try:
-    #         # 自动转换路径格式
-    #         if "github.com" in path and "/tree/" in path:
-    #             path = path.replace("github.com", "raw.githubusercontent.com").replace("/tree/", "/")
-    #
-    #         if not is_valid_url(path) or 'github' not in path:
-    #             print('(rag) 错误：非GitHub URL或路径无效')
-    #             return
-    #
-    #         if is_github_folder_url(path):
-    #             urls = get_github_repo_contents(path)
-    #             print(f'(rag) 发现{len(urls)}个法律文件需要处理')
-    #
-    #             for idx, url in enumerate(urls, 1):
-    #                 try:
-    #                     print(f'(rag) 正在处理 ({idx}/{len(urls)})：{os.path.basename(url)}')
-    #                     self.index._insert_doc_url(
-    #                         url=url,
-    #                         metadata={"digest_from": "法律条文"},
-    #                     )
-    #                     success_count += 1
-    #                     time.sleep(0.5)  # 防止请求过载
-    #                 except Exception as e:
-    #                     error_msg = f"{os.path.basename(url)} | 错误：{str(e)}"
-    #                     error_files.append(error_msg)
-    #                     print(f'(rag) [!] {error_msg}')
-    #                     # 打印详细错误日志
-    #                     import traceback
-    #                     traceback.print_exc()
-    #
-    #             # 最终报告
-    #             print(f'\n(rag) 批量处理结果：')
-    #             print(f'   ✅ 成功: {success_count}个')
-    #             print(f'   ❌ 失败: {len(error_files)}个')
-    #             if error_files:
-    #                 print('   失败详情：')
-    #                 for msg in error_files:
-    #                     print(f'     - {msg}')
-    #             return
-    #
-    #         elif path.endswith(('.txt', '.md', '.pdf')):
-    #             self.index._insert_doc_url(
-    #                 url=path,
-    #                 metadata={"digest_from": "法律条文"},
-    #             )
-    #             print('(rag) 单个文件构建完成')
-    #         else:
-    #             print('(rag) 错误：仅支持.txt/.md/.pdf文件')
-    #
-    #     except Exception as e:
-    #         print(f'(rag) 严重错误: {str(e)}')
-    #         import traceback
-    #         traceback.print_exc()
 
     def build_query_engine(self):
         config = self.config
