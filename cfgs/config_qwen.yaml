@@ -9,12 +9,12 @@ rerank:
 milvus:
     host: "localhost" 
     port: "19530"
-    collection_name: "law_rag"
+    collection_name: "securilaw_rag"
     retrieve_topk: 100
     window_size: 4
     rerank_topk: 15
 pipeline:
-    collection_name: "law_rag"
+    collection_name: "securilaw_rag"
     chunk_size: 500
     retrieve_topk: 8
     
