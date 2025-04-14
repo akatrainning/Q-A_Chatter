@@ -45,6 +45,7 @@ class LawsSentenceWindowNodeParser(NodeParser):
 
     @classmethod
     def laws_name(cls, path):
+        #刑事司法协助
         _mapping["zhonghuarenmingongguojixingshisifaxiezhufa.txt"] = "中华人民共和国刑事司法协助法"
         _mapping["zhonghuarenmingongheguoheaerjiliyaminzhurenmingongheguoguanyuxingshisifaxiezhudetiaoyue.txt"] = "中华人民共和国和阿尔及利亚人民民主共和国关于刑事司法协助的条约"
         _mapping["zhonghuarenmingongheguoheagentinggongheguoguanyuxingshisifaxiezhudetiaoyue.txt"] = "中华人民共和国和阿根廷共和国关于刑事司法协助的条约"

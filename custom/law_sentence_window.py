@@ -47,7 +47,7 @@ class LawSentenceWindowNodeParser(NodeParser):
             return json.load(f)
 
     @classmethod
-    def book_name(cls, path: str) -> str:
+    def law_name(cls, path: str) -> str:
         """Get the book name from the mapping."""
         # Load the mapping from the JSON file
         mapping_path = Path(__file__).parent / "mapping.json"
@@ -120,7 +120,7 @@ class LawSentenceWindowNodeParser(NodeParser):
             title_localizer = self.analyze_titles(text)
             lines = text.split('\n')
             nodes = []
-            book_name = LawSentenceWindowNodeParser.book_name(doc.metadata['file_name'])
+            book_name = LawSentenceWindowNodeParser.law_name(doc.metadata['file_name'])
             for i, line in enumerate(lines):
                 if len(line) == 0:
                     continue

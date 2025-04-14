@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6e608fb5-a40c-4fd0-ace1-ba60fa449a09" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/law_sentence_window - 副本.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom/law_sentence_window - 副本.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom/law_sentence_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom/law_sentence_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/executor.py" beforeDir="false" afterPath="$PROJECT_DIR$/executor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +163,7 @@
       <workItem from="1744081361443" duration="3056000" />
       <workItem from="1744090722385" duration="1195000" />
       <workItem from="1744552193874" duration="827000" />
-      <workItem from="1744633297278" duration="558000" />
+      <workItem from="1744633297278" duration="2820000" />
     </task>
     <servers />
   </component>

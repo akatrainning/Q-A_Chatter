@@ -351,7 +351,7 @@ class PipelineExecutor(Executor):
         elif path.endswith('.txt'):
             self.index._insert_doc_url(
                 url=path,
-                metadata={"digest_from": LawSentenceWindowNodeParser.book_name(os.path.basename(path))},
+                metadata={"digest_from": LawSentenceWindowNodeParser.law_name(os.path.basename(path))},
             )
         else:
             print('(rag) 只有github上以txt结尾或文件夹可以被支持。')
