@@ -32,7 +32,7 @@
 ### 步骤三 安装python依赖 ###
 如果您的环境中没有Python3，可以参考[这里](https://www.w3cschool.cn/python3/python3-install.html)安装。（查看您的python路径，请打开cmd输入where Python）
 
-**（可选）** 本项目中使用的python依赖可能会和现有环境产生冲突，如果您担心这一点，可以使用virtualenv工具建立一个新的依赖环境，退出该环境时使用deactivate。请注意使用这种方式会重新下载pytorch等依赖项（即便本机已经安装了它们），可能耗时较长。
+**（可选）** 本项目中使用的python依赖可能会和现有环境产生冲突，如果您担心这一点，可以使用[virtualenv](https://zhuanlan.zhihu.com/p/60647332)工具建立一个新的依赖环境，退出该环境时使用deactivate。请注意使用这种方式会重新下载pytorch等依赖项（即便本机已经安装了它们），可能耗时较长。
 
     pip install virtualenv
     virtualenv rag
