@@ -443,7 +443,7 @@ with gr.Blocks(
                 )
                 file_path = gr.Textbox(
                     label="文档路径",
-                    placeholder="输入文件或目录路径"
+                    placeholder="输入文件或目录路径，如：https://github.com/akatrainning/Q-A_Chatter/blob/main/data/fanjiduanzhuyi/fanfenlieguojiafa.txt"
                 )
                 build_btn = gr.Button(
                     "执行操作",
@@ -460,21 +460,6 @@ with gr.Blocks(
         outputs=[status_display],
         show_progress=False
     )
-
-    # submit_btn.click(
-    #     assistant.process_question,
-    #     inputs=[question_input],
-    #     outputs=[answer_output],
-    #     show_progress=False
-    # )
-
-    # def show_loading():
-    #     return """
-    # <div class="waiting-placeholder">
-    #     <div class="loader"></div>
-    #     <p>正在分析中，请稍候...</p>
-    # </div>
-    # """
     def with_loading():
         loading_html = """
         <div class="law-loader">
@@ -498,6 +483,13 @@ with gr.Blocks(
         fn=assistant.process_question,
         inputs=[question_input],
         outputs=[answer_output],
+        show_progress=False
+    )
+
+    build_btn.click(
+        assistant.index,
+        inputs=[build_task, file_path],
+        outputs=[build_status],
         show_progress=False
     )
 
