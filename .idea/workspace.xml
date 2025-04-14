@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e608fb5-a40c-4fd0-ace1-ba60fa449a09" name="Changes" comment="" />
+    <list default="true" id="6e608fb5-a40c-4fd0-ace1-ba60fa449a09" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/law_sentence_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom/law_sentence_window.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,18 +16,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "akatrainning"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;akatrainning&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/akatrainning/Q-A_Chatter.git",
-    "accountId": "985c8e86-075b-401e-8682-7c5c96a0d584"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/akatrainning/Q-A_Chatter.git&quot;,
+    &quot;accountId&quot;: &quot;985c8e86-075b-401e-8682-7c5c96a0d584&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -46,7 +49,7 @@
     "Python.thread.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/陈忒乐/rag1",
+    "last_opened_file_path": "D:/学习资料/2024OOP/git/Q-A_Chatter",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -158,6 +161,7 @@
       <workItem from="1744081361443" duration="3056000" />
       <workItem from="1744090722385" duration="1195000" />
       <workItem from="1744552193874" duration="827000" />
+      <workItem from="1744633297278" duration="558000" />
     </task>
     <servers />
   </component>
