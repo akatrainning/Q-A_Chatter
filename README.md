@@ -1,5 +1,7 @@
 # *SecuriAI* **安鉴无界**
-本项目旨在利用检索增强生成（RAG）模型构建安全法律体系智能问答系统，用于实现法律法规、司法案例及原则性法理知识的高效检索、准确匹配与专业性答案生成，并适用于国家安全与个人数据保护等专业场景和普法场景。通过本模型，您可进行私有化部署与定制化法律助手开发，满足政府机构、企业和个人用户差异化需求。
+本项目旨在利用检索增强生成（RAG）模型构建安全法律体系智能问答系统，用于实现法律法规、司法案例及原则性法理知识的高效检索、准确匹配与专业性答案生成，并适用于国家安全与个人数据保护等专业场景和普法场景。相比于直接询问大模型，这种方式具有回答准确率高，不容易产生大模型的“幻觉”问题等优点。通过本模型，您可进行私有化部署与定制化法律助手开发，满足政府机构、企业和个人用户差异化需求。
+
+![](./answer.gif)
  ## 🥰如何构建您的私人问答助手？ ##
  ### 本项目需要： ###
      获取Qwen API Key 
@@ -19,8 +21,8 @@
 
 注册[Zilliz Cloud](https://cloud.zilliz.com/signup?utm_source=partner&utm_medium=referral&utm_campaign=2024-01-18_product_zcp-demos_github&utm_content=history-rag)账号，获取相应project配置。您可以参考[这里](https://github.com/milvus-io/bootcamp/blob/master/bootcamp/RAG/zilliz_pipeline_rag.ipynb)了解更加详细的使用教程。
 
-![](./fig1.jpeg)
-![](./zilliz_api_key_cluster_id.jpeg)
+![](./img/fig1.jpeg)
+![](./img/zilliz_api_key_cluster_id.jpeg)
 
 在系统环境变量中添加：
 
@@ -39,11 +41,31 @@
 
     pip install -r requirements.txt
 ### 步骤四 构建法律知识库 ###
-执行前端交互程序app.py，该过程中会将文本切片并生成向量，构建向量索引：
+执行前端交互程序app.py，该过程中会启动前端页面：
 
     python app.py
     
+进入网页——高级管理——构建索引或删除索引
 
-如果想一次性导入所有法律文件，可以运行https://github.com/akatrainning/Q-A_Chatter/tree/main/data将该目录下所有文件上传进行索引构建。 注意，Zilliz Cloud Pipelines方案目前仅支持文件以URL的形式导入，后续会支持本地文件和文件夹导入。   
+![](./img/page.png)
+如果想一次性导入所有法律文件，可以输入https://github.com/akatrainning/Q-A_Chatter/tree/main/data将该目录下所有文件上传进行索引构建。 注意，Zilliz Cloud Pipelines方案目前仅支持文件以URL的形式导入，后续会支持本地文件和文件夹导入。   
 ### 步骤五 进行问题查询 ###
+索引构建完毕后，在输入框中您的输入问题，即可等待SecuriAI给出解决方案及法条出处！😋
 
+![](./img/final.png)
+ ## 🤫您可能会问 ##
+ 
+**问题：** 为什么我的问答每次效果都不一样？
+
+>回答：RAG中的Retrieval（召回）过程都是确定性的，但是大语言模型的内容生成存在一定随机性。存在一些方法让其进一步稳定，例如调整executor.py中的PROMPT，使用COT等Prompt Engineering方案，或者调整Qwen 中的seed和temperature参数（但这可能会影响大模型的泛化能力）。
+
+**问题：** 可以添加其它领域的法律条文吗？
+
+>回答：可以，但是由于会根据法条格式来判断引用时候的法律名，所以最好是每一个文件以"某某法"、"某某规定"等开头(无缩进)，然后使用缩进来表示正文。
+
+**问题：** 可以使用其它大模型吗？
+
+>回答：可以，Llama Index所支持的LLM都可以很轻松的使用。项目默认使用的是通义千问大模型。如果使用其他模型，需要在cfgs/config.yaml配置文件中修改llm配置项，并且修改executor.py中的逻辑，初始化其他LLM来进行集成。
+
+
+ 
